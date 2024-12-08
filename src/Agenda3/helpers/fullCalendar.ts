@@ -13,7 +13,7 @@ export const transformAgendaTaskToCalendarEvent = (
   },
 ): CalendarEvent[] => {
   const { showFirstEventInCycleOnly = false, showTimeLog = false, groupType } = options
-  const { estimatedTime = DEFAULT_ESTIMATED_TIME, timeLogs = [], status, actualTime } = task
+  const { estimatedTime = task.estimatedTime || 20, timeLogs = [], status, actualTime } = task
   const rrule: CalendarEvent['rrule'] =
     showFirstEventInCycleOnly && task.rrule
       ? {
